@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('lat');
             $table->integer('long');
             $table->boolean('is_admin')->default(false);
+            $table->timestamps();
             
         });
 
