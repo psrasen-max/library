@@ -23,6 +23,10 @@ return new class extends Migration
             $table->year('publication_year');
             $table->integer('price');
             $table->integer('rent_price');
+<<<<<<< Updated upstream
+=======
+            $table->foreignIdFor(Rent::class);
+>>>>>>> Stashed changes
             
         });
     }

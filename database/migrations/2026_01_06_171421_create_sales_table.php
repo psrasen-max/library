@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
-            $table->interger('total_amount');
+            $table->integer('total_amount');
             $table->timestamps();
         });
     }

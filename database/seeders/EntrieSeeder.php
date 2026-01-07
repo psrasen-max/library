@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Entrie;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,6 @@ class EntrieSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Entrie::factory()->count(10)->create();
     }
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Sale::class);
             $table->foreignIdFor(Book::class);
-            $table->intenger('individual_price');
+            $table->integer('individual_price');
             $table->timestamps();
         });
     }
