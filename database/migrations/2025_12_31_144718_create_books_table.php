@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('name');
             $table->foreignIdFor(Category::class);
             $table->foreignIdFor(Author::class);
+            $table->foreignIdFor(Rent::class);
             $table->year('publication_year');
-            $table->interger('price');
-            $table->interger('rent_price');
-            $table->foreingIdFor(Rent::class);
+            $table->integer('price');
+            $table->integer('rent_price');
             
         });
     }
