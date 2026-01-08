@@ -17,7 +17,8 @@ class EntrieFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => \App\Models\User::factory(),
+            
+            'user_id' => \App\Models\User::inRandomOrder()->first()?->id ?? \App\Models\User::factory(), // Irá pegar um usuário existente ou criar um novo se não houver nenhum 
             'clock_in' => now(),
             'clock_out' => now(),
         ];
