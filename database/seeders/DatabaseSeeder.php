@@ -15,10 +15,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
         AuthorSeeder::class,
         BookSeeder::class,
+        CategorySeeder::class,
         EntrieSeeder::class,
         RentSeeder::class,
         ReservationSeeder::class,
-        ReviewsSeeder::class,
+        ReviewSeeder::class,
         SaleSeeder::class,
         UserSeeder::class,
         ]);
