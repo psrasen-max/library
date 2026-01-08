@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,9 +19,9 @@ class EntrieFactory extends Factory
     {
         return [
             
-            'user_id' => \App\Models\User::inRandomOrder()->first()?->id ?? \App\Models\User::factory(), // Irá pegar um usuário existente ou criar um novo se não houver nenhum 
-            'clock_in' => now(),
-            'clock_out' => now(),
+            'user_id' => User::inRandomOrder()->first()?->id ?? User::factory(), // Irá pegar um usuário existente ou criar um novo se não houver nenhum 
+            'check_in' => now(),
+            'check_out' => now(),
         ];
     }
 }

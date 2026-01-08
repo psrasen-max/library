@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,8 +18,10 @@ class SaleFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => \App\Models\User::inRandomOrder()->first()?->id ?? \App\Models\User::factory(), // Irá pegar um usuário existente ou criar um novo se não houver nenhum 
+
+            'user_id' => User::inRandomOrder()->first()?->id ?? User::factory(), // Irá pegar um usuário existente ou criar um novo se não houver nenhum 
             'total_amount' => $this->faker->numberBetween(100, 1000),
+
         ];
     }
 }

@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('entries', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
-            $table->dateTime('clock_in');
-            $table->dateTime('clock_out');
+            $table->dateTime('check_in');
+            $table->dateTime('check_out');
             $table->timestamps();
         });
     }
