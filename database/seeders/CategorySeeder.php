@@ -15,19 +15,23 @@ class CategorySeeder extends Seeder
     {
 
         $categories = [
-            'category' =>'Romance',
-            'category' =>'Terror',
-            'category' =>'Infantil',
-            'category' =>'Fantasia',
-            'category' =>'Biografia',
-            'category' =>'História',
-            'category' =>'Ciência',
-            'category' =>'Aventura',
-            'category' =>'Religião',
-            'category' =>'Suspense',
-            'category' =>'Ficção Ciêntifica',
+            ['name' =>'Romance'],
+            ['name' =>'Terror'],
+            ['name' =>'Infantil'],
+            ['name' =>'Fantasia'],
+            ['name' =>'Biografia'],
+            ['name' =>'História'],
+            ['name' =>'Ciência'],
+            ['name' =>'Aventura'],
+            ['name' =>'Religião'],
+            ['name' =>'Suspense'],
+            ['name' =>'Ficção Ciêntifica'],
         ];
 
-        DB::table('Category')->insert($categories);
+        foreach ($categories as $category) {
+
+            DB::table('categories')->insert($category);
+}
+
     }
 }
