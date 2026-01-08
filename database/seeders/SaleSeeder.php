@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Sale;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SaleSeeder extends Seeder
@@ -21,7 +20,7 @@ class SaleSeeder extends Seeder
         $users->each(function ($user) {
 
             Sale::factory()
-            ->count(rand(0, 5)) // Sorteia quantos livros esse usuário específico comprou
+            ->count(rand(0, 5)) // Sorteia quantos livros esse usuário específico comprou. (rand(0, 5): sorteia um número entre 0 e 5)
             ->for($user)        // Vincula a venda a este usuário
             ->create();
 
