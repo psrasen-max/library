@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Author;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,6 +22,7 @@ class BookFactory extends Factory
         return [
 
             'name' => $this->faker->words(3,true), // Nome do livro com 3 palavras sem ponto final
+            'created_by' => User::where('is_admin', true)->inRandomOrder()->first()?->id, // Seleciona um usuário admin aleatório
             'category_id' => Category::inRandomOrder()->first()?->id, // Seleciona uma categoria aleatória
             'author_id' => Author::inRandomOrder()->first()?->id, // Seleciona um autor aleatório
             'publication_year' => $this->faker->year(), // Ano de publicação aleatório
