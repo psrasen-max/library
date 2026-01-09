@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Book;
+use App\Models\Reservation;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,7 +16,11 @@ return new class extends Migration
     {
         Schema::create('rents', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class, 'rented_by')->onDelete('cascade'); // Alugado por
+            $table->foreignIdFor(User::class, 'rented_by')->constrained('users'); // Alugado por
+            $table->foreignIdFor(Book::class, 'book_id')->constrained(); // Livro alugado
+            $table->dateTime('rent_date'); // Data do aluguel
+            $table->dateTime('returned_at')->nullable(); // Nulo porque o livro pode ainda não ter sido devolvido
+            $table->foreignIdFor(Reservation::class, 'reservation_id')->nullable()->constrained()->onDelete('set null'); // Referência à reserva, se houver
             $table->timestamps();
         });
     }

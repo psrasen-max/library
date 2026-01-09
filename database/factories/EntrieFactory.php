@@ -19,7 +19,7 @@ class EntrieFactory extends Factory
     {
         return [
             
-            'user_id' => User::inRandomOrder()->first()?->id ?? User::factory(), // Irá pegar um usuário existente ou criar um novo se não houver nenhum 
+            'entered_by' => User::inRandomOrder()->first()?->id, // Irá pegar um usuário existente ou criar um novo se não houver nenhum 
             'check_in' => now(),
             'check_out' => now(),
         ];
