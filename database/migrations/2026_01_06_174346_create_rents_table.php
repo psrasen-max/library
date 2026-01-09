@@ -16,7 +16,6 @@ return new class extends Migration
     {
         Schema::create('rents', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class, 'rented_by')->constrained('users'); // Alugado por
             $table->foreignIdFor(Book::class, 'book_id')->constrained(); // Livro alugado
             $table->dateTime('rent_date'); // Data do aluguel
             $table->dateTime('returned_at')->nullable(); // Nulo porque o livro pode ainda não ter sido devolvido

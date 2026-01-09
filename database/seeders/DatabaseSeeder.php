@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
         AuthorSeeder::class,
         BookSeeder::class,
         EntrieSeeder::class,
-        RentSeeder::class,
         ReservationSeeder::class,
+        RentSeeder::class,
         ReviewSeeder::class,
         SaleSeeder::class,
 
