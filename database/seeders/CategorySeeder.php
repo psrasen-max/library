@@ -15,6 +15,7 @@ class CategorySeeder extends Seeder
     {
 
         $categories = [
+
             ['name' =>'Romance'],
             ['name' =>'Terror'],
             ['name' =>'Infantil'],
@@ -26,11 +27,17 @@ class CategorySeeder extends Seeder
             ['name' =>'Religião'],
             ['name' =>'Suspense'],
             ['name' =>'Ficção Ciêntifica'],
+            ['name' =>'Autoajuda'],
+            ['name' =>'Humor'],
+            ['name' =>'Didático'],
+            ['name' =>'Poema'],
+
+
         ];
 
         foreach ($categories as $category) {
 
-            DB::table('categories')->insert($category);
+            DB::table('categories')->updateOrInsert($category);
 }
 
     }

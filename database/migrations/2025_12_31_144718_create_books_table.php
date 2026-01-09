@@ -17,11 +17,10 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignIdFor(Category::class);
-            $table->foreignIdFor(Author::class);
-            $table->foreignIdFor(Rent::class);
+            $table->foreignIdFor(Category::class, 'category_id'); // Categoria do livro
+            $table->foreignIdFor(Author::class, 'author_id');  // Autor do livro
             $table->year('publication_year');
-            $table->integer('price');
+            $table->integer('purchase_price');
             $table->integer('rent_price');
             $table->timestamps();
         });

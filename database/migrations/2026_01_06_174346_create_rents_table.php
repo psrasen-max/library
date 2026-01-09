@@ -16,10 +16,11 @@ return new class extends Migration
     {
         Schema::create('rents', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Book::class, 'book_id')->constrained(); // Livro alugado
+            $table->foreignIdFor(User::class, 'rented_by'); // Usuário que alugou o livro
+            $table->foreignIdFor(Book::class, 'book_id'); // Livro alugado
             $table->dateTime('rent_date'); // Data do aluguel
             $table->dateTime('returned_at')->nullable(); // Nulo porque o livro pode ainda não ter sido devolvido
-            $table->foreignIdFor(Reservation::class, 'reservation_id')->nullable()->constrained()->onDelete('set null'); // Referência à reserva, se houver
+            $table->foreignIdFor(Reservation::class, 'reservation_id')->nullable()->onDelete('set null'); // Referência à reserva, se houver
             $table->timestamps();
         });
     }

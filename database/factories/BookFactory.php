@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Author;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,13 +19,13 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->sentence(3),
-            'price' => fake()->numberBetween(1000,9000),
-            'publication_year' =>fake()->year(),
-            'author_id' => Author::inRandomOrder()->first()-> id ?? Author::factory(),
-            'rent_price'=> 1,
-            'rent_id' => 1,
-            'category_id' => 1,
+
+            'name' => $this->faker->words(3,true), // Nome do livro com 3 palavras sem ponto final
+            'category_id' => Category::inRandomOrder()->first()?->id, // Seleciona uma categoria aleatória
+            'author_id' => Author::inRandomOrder()->first()?->id, // Seleciona um autor aleatório
+            'publication_year' => $this->faker->year(), // Ano de publicação aleatório
+            'purchase_price' => $this->faker->numberBetween(20, 100), // Preço de compra entre 20 e 100
+            'rent_price' => $this->faker->numberBetween(5, 10), // Preço de aluguel entre 5 e 10         
 
         ];
     }

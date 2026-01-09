@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class, 'bought_by')->onDelete('cascade'); // Comprado por
+            $table->foreignIdFor(User::class, 'bought_by'); // Comprado por
             $table->integer('total_amount');
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class, 'reserved_by')->constrained('users'); // Reservado por
+            $table->foreignIdFor(User::class, 'reserved_by'); // Reservado por
             $table->dateTime('reservation_at'); // Data da reserva
             $table->timestamps();
         });

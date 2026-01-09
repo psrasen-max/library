@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('entries', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class, 'entered_by')->onDelete('cascade'); // Registrado por
+            $table->foreignIdFor(User::class, 'entered_by'); // Registrado por
             $table->dateTime('check_in');
             $table->dateTime('check_out');
             $table->timestamps();

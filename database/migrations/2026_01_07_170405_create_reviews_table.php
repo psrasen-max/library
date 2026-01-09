@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Book::class);
-            $table->foreignIdFor(Author::class);
+            $table->foreignIdFor(Book::class, 'book_id'); // Livro avaliado
+            $table->foreignIdFor(Author::class, 'author_id'); // Autor avaliado
             $table->timestamps();
         });
     }
