@@ -9,4 +9,22 @@ class Sale extends Model
 {
     /** @use HasFactory<\Database\Factories\SaleFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'total_amount'
+    ];
+
+    protected $table = 'sales';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function books()
+    {
+
+        return $this->belongsToMany(Book::class,'book_sale')->withPivot('individual_price');
+    }
 }

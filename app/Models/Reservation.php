@@ -9,4 +9,15 @@ class Reservation extends Model
 {
     /** @use HasFactory<\Database\Factories\ReservationFactory> */
     use HasFactory;
+
+    protected $fillable = ['user_id','reservation_id'];
+
+    protected $casts = ['reservation_id'=>'datatime'];
+
+    protected $table = 'reservations';
+
+    public function books()
+    {
+        return $this->belongsTo(Book::class);
+    }
 }
