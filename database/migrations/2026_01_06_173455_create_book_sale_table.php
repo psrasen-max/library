@@ -2,7 +2,6 @@
 
 use App\Models\Sale;
 use App\Models\Book;
-use Database\Seeders\SaleSeeder;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,11 +14,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('book_sale', function (Blueprint $table) {
-            $table->id();
+
             $table->foreignIdFor(Sale::class, 'sale_id');
             $table->foreignIdFor(Book::class, 'book_id');
             $table->integer('individual_price');
             $table->timestamps();
+
         });
     }
 

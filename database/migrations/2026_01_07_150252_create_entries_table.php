@@ -13,11 +13,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('entries', function (Blueprint $table) {
+
             $table->id();
             $table->foreignIdFor(User::class, 'entered_by'); // Registrado por
             $table->dateTime('check_in');
             $table->dateTime('check_out');
             $table->timestamps();
+            
         });
     }
 

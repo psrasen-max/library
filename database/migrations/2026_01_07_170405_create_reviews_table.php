@@ -14,10 +14,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reviews', function (Blueprint $table) {
+
             $table->id();
             $table->foreignIdFor(Book::class, 'book_id'); // Livro avaliado
             $table->foreignIdFor(Author::class, 'author_id'); // Autor avaliado
+            $table->integer('rating'); // Avaliação de 1 a 5
+            $table->text('comment'); // Comentário da avaliação
             $table->timestamps();
+            
         });
     }
 

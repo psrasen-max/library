@@ -22,6 +22,7 @@ class AuthorFactory extends Factory
             'birthdate' => $this->faker->date(), // Data de nascimento do autor
             'nationality' => $this->faker->country(), // Nacionalidade do autor
             'biography' => $this->faker->paragraph(), // Biografia do autor
+            
         ];
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('books', function (Blueprint $table) {
+
             $table->id();
             $table->string('name');
             $table->foreignIdFor(User::class, 'created_by'); // Usuário que cadastrou o livro
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->integer('purchase_price');
             $table->integer('rent_price');
             $table->timestamps();
+            
         });
     }
 

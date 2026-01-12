@@ -19,9 +19,10 @@ class EntrieFactory extends Factory
     {
         return [
             
-            'entered_by' => User::inRandomOrder()->first()?->id, // Irá pegar um usuário existente ou criar um novo se não houver nenhum 
-            'check_in' => now(),
-            'check_out' => now(),
+            'entered_by' => User::inRandomOrder()->first()?->id, // Irá pegar um usuário existente aleatoriamente
+            'check_in' => $this->faker->dateTimeBetween('-2 months', 'now'),
+            'check_out' => $this->faker->dateTimeBetween('now', '+2 months'),
+
         ];
     }
 }

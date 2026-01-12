@@ -13,10 +13,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reservations', function (Blueprint $table) {
+
             $table->id();
             $table->foreignIdFor(User::class, 'reserved_by'); // Reservado por
             $table->dateTime('reservation_at'); // Data da reserva
             $table->timestamps();
+            
         });
     }
 
