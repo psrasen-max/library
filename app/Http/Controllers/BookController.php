@@ -10,27 +10,14 @@ class BookController extends Controller
 {
     public function index()
     {
-        return Book::with(['author','category'])->get();
+        return Book::with(['author', 'category'])->get();
     }
 
-    public function store(Request $request)
-    {
-        
-    }
+    public function store(Request $request) {}
 
-    public function show(Book $book)
-    {
+    public function show(Book $book) {}
 
-    }
+    public function update(Book $book) {}
 
-    public function update(Book $book)
-    {
-
-    }
-
-    public function destroy(Book $book)
-    {
-
-    }
-
+    public function destroy(Book $book) {}
 }

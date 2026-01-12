@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('purchase_price');
             $table->integer('rent_price');
             $table->timestamps();
-            
+
         });
     }
 

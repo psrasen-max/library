@@ -23,7 +23,7 @@ return new class extends Migration
             $table->dateTime('returned_at')->nullable(); // Nulo porque o livro pode ainda não ter sido devolvido
             $table->foreignIdFor(Reservation::class, 'reservation_id')->nullable()->onDelete('set null'); // Referência à reserva, se houver
             $table->timestamps();
-            
+
         });
     }
 

@@ -3,15 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+
 class User extends Authenticatable
 {
-    
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
-    
-    //atributos que podem ser preenchidos em massa
+
+    // atributos que podem ser preenchidos em massa
     protected $fillable = [
         'name',
         'email',
@@ -24,11 +23,12 @@ class User extends Authenticatable
         'is_admin',
 
     ];
+
     protected $table = 'users';
-    
+
     protected $casts = [
         'is_admin' => 'boolean',
-        'password' => 'hashed',// Laravel 12 recomenda isso para garantir hash automático
+        'password' => 'hashed', // Laravel 12 recomenda isso para garantir hash automático
     ];
 
     public function rents()
@@ -56,6 +56,4 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);
 
     }
-
-
 }

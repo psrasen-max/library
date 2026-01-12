@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nationality');
             $table->text('biography');
             $table->timestamps();
-            
+
         });
     }
 

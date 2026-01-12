@@ -1,0 +1,25 @@
+ ------ ------------------------------------------------------------ 
+  Line   Http/Controllers/BookController.php                         
+ ------ ------------------------------------------------------------ 
+  :13    Relation 'author' is not found in App\Models\Book model.    
+         🪪  larastan.relationExistence                              
+  :13    Relation 'category' is not found in App\Models\Book model.  
+         🪪  larastan.relationExistence                              
+ ------ ------------------------------------------------------------ 
+
+ ------ ------------------------------------------------------------------------ 
+  Line   Models/Author.php                                                       
+ ------ ------------------------------------------------------------------------ 
+  :27    Class App\Models\Book referenced with incorrect case: App\Models\book.  
+         🪪  class.nameCase                                                      
+ ------ ------------------------------------------------------------------------ 
+
+ ------ ------------------------------------------------------------------------ 
+  Line   Models/Category.php                                                     
+ ------ ------------------------------------------------------------------------ 
+  :18    Class App\Models\Book referenced with incorrect case: App\Models\book.  
+         🪪  class.nameCase                                                      
+ ------ ------------------------------------------------------------------------ 
+
+ [ERROR] Found 4 errors                                                                                                 
+

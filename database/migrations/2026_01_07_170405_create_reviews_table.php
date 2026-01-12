@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('rating'); // Avaliação de 1 a 5
             $table->text('comment'); // Comentário da avaliação
             $table->timestamps();
-            
+
         });
     }
 

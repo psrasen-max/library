@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class, 'reserved_by'); // Reservado por
             $table->dateTime('reservation_at'); // Data da reserva
             $table->timestamps();
-            
+
         });
     }
 

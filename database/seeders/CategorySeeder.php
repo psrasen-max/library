@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -16,29 +15,28 @@ class CategorySeeder extends Seeder
 
         $categories = [
 
-            ['name' =>'Romance'],
-            ['name' =>'Terror'],
-            ['name' =>'Infantil'],
-            ['name' =>'Fantasia'],
-            ['name' =>'Biografia'],
-            ['name' =>'História'],
-            ['name' =>'Ciência'],
-            ['name' =>'Aventura'],
-            ['name' =>'Religião'],
-            ['name' =>'Suspense'],
-            ['name' =>'Ficção Ciêntifica'],
-            ['name' =>'Autoajuda'],
-            ['name' =>'Humor'],
-            ['name' =>'Didático'],
-            ['name' =>'Poema'],
-
+            ['name' => 'Romance'],
+            ['name' => 'Terror'],
+            ['name' => 'Infantil'],
+            ['name' => 'Fantasia'],
+            ['name' => 'Biografia'],
+            ['name' => 'História'],
+            ['name' => 'Ciência'],
+            ['name' => 'Aventura'],
+            ['name' => 'Religião'],
+            ['name' => 'Suspense'],
+            ['name' => 'Ficção Ciêntifica'],
+            ['name' => 'Autoajuda'],
+            ['name' => 'Humor'],
+            ['name' => 'Didático'],
+            ['name' => 'Poema'],
 
         ];
 
         foreach ($categories as $category) {
 
             DB::table('categories')->updateOrInsert($category);
-}
+        }
 
     }
 }

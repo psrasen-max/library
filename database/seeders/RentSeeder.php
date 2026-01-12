@@ -21,9 +21,9 @@ class RentSeeder extends Seeder
         $users->each(function ($user) {
 
             Rent::factory()
-            ->count(rand(0, 5)) // Sorteia quantos livros esse usuário específico alugou. (rand(0, 5): sorteia um número entre 0 e 5)
-            ->for($user)        // Vincula o aluguel a este usuário
-            ->create();
+                ->count(rand(0, 5)) // Sorteia quantos livros esse usuário específico alugou. (rand(0, 5): sorteia um número entre 0 e 5)
+                ->for($user)        // Vincula o aluguel a este usuário
+                ->create();
 
         });
 

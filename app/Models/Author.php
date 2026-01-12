@@ -15,10 +15,10 @@ class Author extends Model
         'name',
         'birthdate',
         'nationality',
-        'biography'
+        'biography',
 
     ];
-    
+
     protected $table = 'authors';
 
     public function books()
@@ -27,6 +27,4 @@ class Author extends Model
         return $this->hasMany(book::class);
 
     }
-
-
 }

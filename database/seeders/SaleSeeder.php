@@ -20,9 +20,9 @@ class SaleSeeder extends Seeder
         $users->each(function ($user) {
 
             Sale::factory()
-            ->count(rand(0, 5)) // Sorteia quantos livros esse usuário específico comprou. (rand(0, 5): sorteia um número entre 0 e 5)
-            ->for($user)        // Vincula a venda a este usuário
-            ->create();
+                ->count(rand(0, 5)) // Sorteia quantos livros esse usuário específico comprou. (rand(0, 5): sorteia um número entre 0 e 5)
+                ->for($user)        // Vincula a venda a este usuário
+                ->create();
 
         });
     }

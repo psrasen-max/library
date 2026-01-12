@@ -19,7 +19,7 @@ class SaleFactory extends Factory
     {
         return [
 
-            'user_id' => User::inRandomOrder()->first()?->id, // Irá pegar um usuário existente ou criar um novo se não houver nenhum. ->first(): Pega apenas o primeiro registro dessa lista embaralhada. 
+            'user_id' => User::inRandomOrder()->first()?->id, // Irá pegar um usuário existente ou criar um novo se não houver nenhum. ->first(): Pega apenas o primeiro registro dessa lista embaralhada.
             'total_amount' => $this->faker->numberBetween(100, 1000),
 
         ];

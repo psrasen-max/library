@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('long');
             $table->boolean('is_admin');
             $table->timestamps();
-            
+
         });
     }
 

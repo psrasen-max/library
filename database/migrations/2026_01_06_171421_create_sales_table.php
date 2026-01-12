@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class, 'bought_by'); // Comprado por
             $table->integer('total_amount');
             $table->timestamps();
-            
+
         });
     }
 
