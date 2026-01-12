@@ -9,4 +9,24 @@ class Author extends Model
 {
     /** @use HasFactory<\Database\Factories\AuthorFactory> */
     use HasFactory;
+
+    protected $fillable = [
+
+        'name',
+        'birthdate',
+        'nationality',
+        'biography'
+
+    ];
+    
+    protected $table = 'authors';
+
+    public function books()
+    {
+
+        return $this->hasMany(book::class);
+
+    }
+
+
 }
