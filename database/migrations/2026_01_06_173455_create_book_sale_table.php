@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('book_sale', function (Blueprint $table) {
+        Schema::create('book_sale', function (Blueprint $table) { // Tabela pivô entre livros e vendas
 
-            $table->foreignIdFor(Sale::class, 'sale_id');
-            $table->foreignIdFor(Book::class, 'book_id');
-            $table->integer('individual_price');
+            $table->foreignIdFor(Sale::class, 'sale_id'); // Venda associada
+            $table->foreignIdFor(Book::class, 'book_id'); // Livro vendido
+            $table->integer('quantity')->default(1); // Quantidade de livros vendidos
+            $table->decimal('individual_price', 10, 2); // Preço individual no momento da venda
             $table->timestamps();
+
+            $table->primary(['sale_id', 'book_id']); // Chave primária composta
 
         });
     }
