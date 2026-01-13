@@ -26,7 +26,7 @@ class UserFactory extends Factory
             'cep' => $this->faker->numerify('########'),
             'lat' => $this->faker->numberBetween(-90, 90),
             'long' => $this->faker->numberBetween(-180, 180),
-            'is_admin' => $this->faker->boolean(10), // 10% chance de ser admin
+            'is_admin' => $this->faker->boolean(20), // 20% chance de ser admin
 
         ];
     }
