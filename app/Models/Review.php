@@ -32,4 +32,9 @@ class Review extends Model
         return $this->belongsTo(User::class, 'user_id'); // Usuário que fez a avaliação
     }
 
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(Author::class, 'author_id'); // Autor avaliado
+    }
+
 }
