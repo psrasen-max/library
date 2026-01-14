@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Author;
+use App\Models\Book;
 use App\Models\Review;
 use Illuminate\Database\Seeder;
 
@@ -13,13 +14,13 @@ class ReviewSeeder extends Seeder
      */
     public function run(): void
     {
-        // Pega todos os autores
-        $authors = Author::all(); 
-        // Para cada autor, cria um número aleatório de avaliações
-        $authors->each(function ($authors) { 
+        // Pega todos os livros
+        $books = Book::all(); 
+        // Para cada livro, cria um número aleatório de avaliações
+        $books->each(function ($books) { 
             Review::factory()
-            ->count(rand(5, 20)) // Sorteia quantas avaliações esse autor específico recebeu. (rand(0, 5): sorteia um número entre 0 e 5)
-            ->for($authors) // Vincula a avaliação a este autor
+            ->count(rand(5, 20)) // Sorteia quantas avaliações esse livro específico recebeu. (rand(0, 5): sorteia um número entre 0 e 5)
+            ->for($books) // Vincula a avaliação a este livro
             ->create();
         });
     }

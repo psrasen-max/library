@@ -1,3 +1,0 @@
-tabela reservations não está seedando
-tabela pivot book_sale não está seedando
-tabela pivot book_reservation não está seedando

@@ -2,6 +2,7 @@
 
 use App\Models\Author;
 use App\Models\Book;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,8 +16,8 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(User::class, 'avaliated_by'); // Usuário que criou a avaliação
             $table->foreignIdFor(Book::class, 'book_id'); // Livro avaliado
-            $table->foreignIdFor(Author::class, 'author_id'); // Autor avaliado
             $table->integer('rating'); // Avaliação de 1 a 5
             $table->text('comment'); // Comentário da avaliação
             $table->timestamps();

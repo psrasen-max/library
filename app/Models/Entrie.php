@@ -12,7 +12,6 @@ class Entrie extends Model
     use HasFactory;
 
     protected $table = 'entries';
-
     protected $fillable = [
         'title',
         'content',
@@ -23,5 +22,4 @@ class Entrie extends Model
     {
         return $this->belongsTo(User::class, 'entered_by'); // Usuário que registrou a entrada
     }
-
 }

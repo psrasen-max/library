@@ -18,7 +18,7 @@ class ReservationFactory extends Factory
     {
         return [
             'reserved_at' => $this->faker->dateTimeBetween('-1 month', 'now'), // Data de reserva
-            'due_at' => $this->faker->dateTimeBetween('now', '+1 month'),// Data de vencimento
+            'due_at' => $this->faker->dateTimeBetween('now', '+1 month'), // Data de vencimento
             'returned_at' => null, // Data de devolução (null se não devolvido)
         ];
     }

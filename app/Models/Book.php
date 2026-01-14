@@ -15,12 +15,12 @@ class Book extends Model
     use HasFactory;
 
     protected $table = 'books';
-
     protected $fillable = [
         'name', // Nome do livro
-        'created_by',// ID do usuário que criou o livro
+        'created_by', // ID do usuário que criou o livro
         'category_id', // ID da categoria
         'author_id', // ID do autor
+        'sequel_to_id', // ID do livro ao qual este é uma sequência
         'publication_year', // Ano de publicação
         'purchase_price', // Preço de compra
         'rent_price', // Preço de aluguel
@@ -54,7 +54,7 @@ class Book extends Model
 
     public function reservations(): BelongsToMany
     {
-        return $this->belongsToMany(Reservation::class, 'book_reservations'); // Reservas do livro
+        return $this->belongsToMany(Reservation::class, 'book_reservation'); // Reservas do livro
     }
 
     public function previousBook(): BelongsTo

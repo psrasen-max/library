@@ -20,7 +20,7 @@ return new class extends Migration
             $table->dateTime('due_at'); // Data de vencimento
             $table->dateTime('returned_at')->nullable(); // Data de devolução (null se não devolvido)
             $table->primary(['reservation_id', 'book_id']); // Chave primária composta. Define que um livro só pode aparecer uma vez por reserva.
-            
+
         });
     }
 

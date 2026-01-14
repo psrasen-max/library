@@ -4,15 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+
 class User extends Authenticatable
 {
-    
+
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
-    
-    //atributos que podem ser preenchidos em massa
-    protected $fillable = [
+
+    protected $table = 'users'; //nome da tabela no banco de dados
+    protected $fillable = [  //atributos que podem ser preenchidos em massa
         'name',
         'email',
         'password',
@@ -23,32 +25,34 @@ class User extends Authenticatable
         'long',
         'is_admin',
     ];
-    protected $table = 'users';
-    
-    protected $casts = [
-        'is_admin' => 'boolean',
-        'password' => 'hashed',// Laravel 12 recomenda isso para garantir hash automático
+
+    protected $hidden = [ //atributos que devem ser ocultados em arrays e JSON
+        'password',
+        'remember_token',
     ];
 
-    public function rents()
+    protected $casts = [ //define como certos atributos devem ser convertidos
+        'is_admin' => 'boolean', // Garante que is_admin seja tratado como booleano
+        'password' => 'hashed', // Laravel 12 recomenda isso para garantir hash automático
+    ];
+
+    public function rents(): HasMany
     {
         return $this->hasMany(Rent::class, 'rented_by');
     }
 
-    public function reservations()
+    public function reservations(): HasMany
     {
-        return $this->hasMany(Reservation::class);
+        return $this->hasMany(Reservation::class, 'reserved_by');
     }
 
-    public function sales()
+    public function sales(): HasMany
     {
-        return $this->hasMany(Sale::class);
+        return $this->hasMany(Sale::class, 'bought_by');
     }
 
-    public function reviews()
+    public function reviews(): HasMany
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class, 'avaliated_by');
     }
-
-
 }

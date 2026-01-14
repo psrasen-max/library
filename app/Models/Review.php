@@ -12,12 +12,11 @@ class Review extends Model
     use HasFactory;
 
     protected $table = 'reviews';
-
     protected $fillable = [
-        'book_id',
-        'author_id',
-        'rating',
-        'comment',
+        'avaliated_by', // Usuário que criou a avaliação
+        'book_id', // Livro avaliado
+        'rating', // Avaliação de 1 a 5
+        'comment', // Comentário da avaliação
     ];
 
     public function book(): BelongsTo
@@ -29,10 +28,4 @@ class Review extends Model
     {
         return $this->belongsTo(User::class, 'user_id'); // Usuário que fez a avaliação
     }
-
-    public function author(): BelongsTo
-    {
-        return $this->belongsTo(Author::class, 'author_id'); // Autor avaliado
-    }
-
 }
