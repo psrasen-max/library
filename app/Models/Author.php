@@ -10,23 +10,18 @@ class Author extends Model
     /** @use HasFactory<\Database\Factories\AuthorFactory> */
     use HasFactory;
 
+    protected $table = 'authors';
+
     protected $fillable = [
-
-        'name',
-        'birthdate',
-        'nationality',
-        'biography'
-
+        'name', // Nome do autor
+        'birthdate', // Data de nascimento
+        'nationality', // Nacionalidade
+        'biography' // Biografia
     ];
     
-    protected $table = 'authors';
 
     public function books()
     {
-
         return $this->hasMany(book::class);
-
     }
-
-
 }

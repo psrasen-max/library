@@ -17,7 +17,6 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'phone' => $this->faker->unique()->numerify('###########'),
@@ -27,7 +26,6 @@ class UserFactory extends Factory
             'lat' => $this->faker->numberBetween(-90, 90),
             'long' => $this->faker->numberBetween(-180, 180),
             'is_admin' => $this->faker->boolean(20), // 20% chance de ser admin
-
         ];
     }
 }

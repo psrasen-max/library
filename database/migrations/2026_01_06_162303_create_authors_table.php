@@ -12,14 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('authors', function (Blueprint $table) {
-
             $table->id();
             $table->string('name');
             $table->date('birthdate');
             $table->string('nationality');
             $table->text('biography');
             $table->timestamps();
-            
         });
     }
 

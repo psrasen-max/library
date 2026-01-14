@@ -14,11 +14,9 @@ class Entrie extends Model
     protected $table = 'entries';
 
     protected $fillable = [
-
         'title',
         'content',
         'author_id',
-
     ];
 
     public function user(): BelongsTo

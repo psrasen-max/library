@@ -24,7 +24,6 @@ class Sale extends Model
 
     public function books()
     {
-
         return $this->belongsToMany(Book::class,'book_sale')->withPivot('individual_price');
     }
 }

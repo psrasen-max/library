@@ -18,10 +18,8 @@ class SaleFactory extends Factory
     public function definition(): array
     {
         return [
-
             'bought_by' => User::inRandomOrder()->first(), // Irá pegar um usuário existente ou criar um novo se não houver nenhum. ->first(): Pega apenas o primeiro registro dessa lista embaralhada. 
             'total_amount' => $this->faker->numberBetween(100, 1000),
-
         ];
     }
 }

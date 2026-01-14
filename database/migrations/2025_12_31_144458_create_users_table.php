@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-
             $table->id();
             $table->string('name', 30);
             $table->string('email', 50)->unique();
@@ -24,7 +23,6 @@ return new class extends Migration
             $table->integer('long');
             $table->boolean('is_admin');
             $table->timestamps();
-            
         });
     }
 

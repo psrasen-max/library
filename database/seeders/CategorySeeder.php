@@ -13,9 +13,7 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-
         $categories = [
-
             ['name' =>'Romance'],
             ['name' =>'Terror'],
             ['name' =>'Infantil'],
@@ -31,14 +29,9 @@ class CategorySeeder extends Seeder
             ['name' =>'Humor'],
             ['name' =>'Didático'],
             ['name' =>'Poema'],
-
-
         ];
-
         foreach ($categories as $category) {
-
             DB::table('categories')->updateOrInsert($category);
-}
-
+        }
     }
 }

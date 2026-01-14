@@ -14,7 +14,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('book_sale', function (Blueprint $table) { // Tabela pivô entre livros e vendas
-
             $table->foreignIdFor(Sale::class, 'sale_id')->constrained(); // Venda associada
             $table->foreignIdFor(Book::class, 'book_id')->constrained(); // Livro vendido
             $table->integer('quantity')->default(1); // Quantidade de livros vendidos
@@ -22,7 +21,6 @@ return new class extends Migration
             $table->timestamps();
             // Chave primária composta
             $table->primary(['sale_id', 'book_id']);
-
         });
     }
 

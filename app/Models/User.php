@@ -22,7 +22,6 @@ class User extends Authenticatable
         'lat',
         'long',
         'is_admin',
-
     ];
     protected $table = 'users';
     
@@ -38,23 +37,17 @@ class User extends Authenticatable
 
     public function reservations()
     {
-
         return $this->hasMany(Reservation::class);
-
     }
 
     public function sales()
     {
-
         return $this->hasMany(Sale::class);
-
     }
 
     public function reviews()
     {
-
         return $this->hasMany(Review::class);
-
     }
 
 
