@@ -14,8 +14,9 @@ class Category extends Model
     protected $table = 'categories';
     protected $fillable = ['name'];
 
+    // Livros pertencentes a esta categoria
     public function books(): HasMany
     {
-        return $this->hasMany(book::class, 'category_id');
+        return $this->hasMany(Book::class, 'category_id');
     }
 }

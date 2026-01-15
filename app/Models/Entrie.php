@@ -13,13 +13,19 @@ class Entrie extends Model
 
     protected $table = 'entries';
     protected $fillable = [
-        'title',
-        'content',
-        'author_id',
-    ];
 
+        'user_id', // Usuário que registrou a entrada
+        'entry_in', // Data da entrada
+        'entry_out' // Data de saída
+    ];
+    protected $casts = [
+        'entry_in' => 'datetime',
+        'entry_out' => 'datetime',
+    ];
+    
+    // Usuário que registrou a entrada
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'entered_by'); // Usuário que registrou a entrada
+        return $this->belongsTo(User::class, 'user_id'); // Usuário que registrou a entrada
     }
 }

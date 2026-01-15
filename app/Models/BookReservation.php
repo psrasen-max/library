@@ -16,11 +16,13 @@ class BookReservation extends Model
         'returned_at',
     ];
 
+    // Livro reservado
     public function book(): BelongsTo
     {
         return $this->belongsTo(Book::class, 'book_id'); // Livro reservado
     }
-
+    
+    // Reserva associada
     public function reservation(): BelongsTo
     {
         return $this->belongsTo(Reservation::class, 'reservation_id'); // Reserva associada

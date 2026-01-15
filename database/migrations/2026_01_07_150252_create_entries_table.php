@@ -14,9 +14,9 @@ return new class extends Migration
     {
         Schema::create('entries', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class, 'entered_by'); // Registrado por
-            $table->dateTime('check_in');
-            $table->dateTime('check_out');
+            $table->foreignIdFor(User::class, 'user_id'); // Registrado por
+            $table->dateTime('entry_in');
+            $table->dateTime('entry_out');
             $table->timestamps();
         });
     }

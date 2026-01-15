@@ -15,7 +15,9 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class, 'reserved_by'); // Reservado por
-            $table->dateTime('reservation_at'); // Data da reserva
+            $table->dateTime('reserved_at'); // Data da reserva
+            $table->dateTime('due_at'); // Data de vencimento
+            $table->dateTime('returned_at')->nullable(); // Data de devolução (null se não devolvido)
             $table->timestamps();
         });
     }

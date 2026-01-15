@@ -13,10 +13,12 @@ class Reservation extends Model
     use HasFactory;
 
     protected $table = 'reservations';
-    protected $casts = ['reservation_at' => 'datetime'];
+    protected $casts = ['reserved_at' => 'datetime'];
     protected $fillable = [
         'reserved_by', // ID do usuário que fez a reserva
-        'reservation_at' // Data e hora da reserva
+        'reserved_at', // Data e hora da reserva
+        'due_at', // Data de vencimento
+        'returned_at' // Data de devolução
     ];
 
     public function user(): BelongsTo

@@ -18,9 +18,9 @@ class EntrieFactory extends Factory
     public function definition(): array
     {
         return [
-            'entered_by' => User::inRandomOrder()->first()?->id, // Irá pegar um usuário existente aleatoriamente
-            'check_in' => $this->faker->dateTimeBetween('-2 hours', 'now'), // Data de entrada
-            'check_out' => $this->faker->dateTimeBetween('now', '+3 hours'), // Data de saída
+            'user_id' => User::inRandomOrder()->first()?->id, // Irá pegar um usuário existente aleatoriamente
+            'entry_in' => $this->faker->dateTimeBetween('-2 hours', 'now'), // Data de entrada
+            'entry_out' => $this->faker->dateTimeBetween('now', '+3 hours'), // Data de saída
         ];
     }
 }

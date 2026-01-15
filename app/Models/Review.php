@@ -19,11 +19,13 @@ class Review extends Model
         'comment', // Comentário da avaliação
     ];
 
+    // Livro avaliado
     public function book(): BelongsTo
     {
         return $this->belongsTo(Book::class, 'book_id'); // Livro avaliado
     }
 
+    // Usuário que fez a avaliação
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id'); // Usuário que fez a avaliação

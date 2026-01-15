@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,6 +18,7 @@ class ReservationFactory extends Factory
     public function definition(): array
     {
         return [
+            'reserved_by' => User::inRandomOrder()->first()?->id, // Usuário que fez a reserva
             'reserved_at' => $this->faker->dateTimeBetween('-1 month', 'now'), // Data de reserva
             'due_at' => $this->faker->dateTimeBetween('now', '+1 month'), // Data de vencimento
             'returned_at' => null, // Data de devolução (null se não devolvido)

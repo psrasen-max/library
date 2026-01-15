@@ -18,11 +18,13 @@ class Sale extends Model
         'total_amount'
     ];
 
+    // Usuário que realizou a compra
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'bought_by');
     }
-
+    
+    // Livros vendidos na compra
     public function books(): BelongsToMany
     {
         return $this->belongsToMany(Book::class, 'book_sale')->withPivot('individual_price');

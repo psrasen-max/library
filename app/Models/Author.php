@@ -19,8 +19,10 @@ class Author extends Model
         'biography' // Biografia
     ];
 
+
+    // Livros escritos pelo autor
     public function books(): HasMany
     {
-        return $this->hasMany(Book::class, 'author_id');
+        return $this->hasMany(Book::class, 'author_id'); // Livros escritos pelo autor
     }
 }

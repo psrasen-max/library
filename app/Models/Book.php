@@ -27,36 +27,43 @@ class Book extends Model
         'stock_quantity' // Quantidade em estoque
     ];
 
+    // Usuário que criou o livro
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by'); // Usuário que criou o livro
     }
 
+    // Categoria do livro 
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id'); // Categoria do livro
     }
 
+    // Autor do livro
     public function author(): BelongsTo
     {
         return $this->belongsTo(Author::class, 'author_id'); // Autor do livro
     }
 
+    // Avaliações do livro
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class, 'book_id'); // Avaliações do livro
     }
 
+    // Aluguéis do livro
     public function rents(): HasMany
     {
         return $this->hasMany(Rent::class, 'book_id'); // Aluguéis do livro
     }
 
+    // Reservas do livro
     public function reservations(): BelongsToMany
     {
         return $this->belongsToMany(Reservation::class, 'book_reservation'); // Reservas do livro
     }
 
+    // Relação de sequência de livros
     public function previousBook(): BelongsTo
     {
         // Livro Anterior (Pai)
@@ -64,6 +71,7 @@ class Book extends Model
         return $this->belongsTo(Book::class, 'sequel_to_id');
     }
 
+    // Relação de sequência de livros
     public function nextBook(): HasOne
     {
         // Próximo Livro (Filho)
