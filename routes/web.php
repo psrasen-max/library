@@ -1,17 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::group([],function(){
 
     Route::get('/', function(){
-        return redirect('/dashboard');
+        return redirect('/painel');
     });
-
     
-    Route::get('/dashboard', function(){
+    Route::get('/painel', function(){
         return view('dashboard');
-    });
+    })->name('geral.painel');
+
+    Route::get('/users/painel', function(){
+        return view('users_dashboard');
+    })->name('users.painel');
 
 });

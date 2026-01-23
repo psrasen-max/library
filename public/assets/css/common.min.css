@@ -18,10 +18,47 @@
 
 .main-content {
   flex-grow: 1;
-  padding: 15px;
-  /* Reduzi o padding de 20 para 15 para ficar mais compacto */
+  padding: 15px; /* Reduzi o padding de 20 para 15 para ficar mais compacto */
   overflow-y: auto;
   height: 100vh;
-  background-color: #f1f5f9;
-  /* Um cinza levemente mais claro para contraste */
+  background-color: #f1f5f9; /* Um cinza levemente mais claro para contraste */
+}
+
+.sidebar > div { /* ">" Combinador de Filho Direto: Ele diz ao navegador -> "Aplique este estilo apenas à div que for filha direta da sidebar". */
+    flex: 1; /* Faz a div interna crescer para preencher a sidebar */
+}
+
+/* Transição suave para a largura da sidebar */
+.sidebar {
+    transition: width 0.3s ease;
+}
+
+/* Estado Recolhido */
+.sidebar.collapsed {
+    width: 70px; /* Largura suficiente apenas para os ícones */
+}
+
+/* Esconde os textos e a linha divisória */
+.sidebar.collapsed .link-text,
+.sidebar.collapsed hr {
+    display: none;
+}
+
+/* Ajusta os links para centralizar os ícones */
+.sidebar.collapsed .nav-link {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Remove a margem lateral do ícone quando estiver colapsado */
+.sidebar.collapsed .nav-link i {
+    margin-right: 0 !important;
+    font-size: 1.25rem; /* Aumenta um pouco o ícone para destaque */
+}
+
+/* Evita que o texto "quebre a linha" durante a animação */
+.link-text {
+    white-space: nowrap;
+    overflow: hidden;
 }

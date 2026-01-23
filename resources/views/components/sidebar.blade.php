@@ -1,22 +1,37 @@
-<aside class="sidebar">
-    <nav class="navbar navbar-dark bg-dark w-100 align-items-start h-100">
-        <div class="container-fluid flex-column align-items-start pt-3">
-            <a class="navbar-brand mb-4" href="#">
-                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/2de50b110481905.5fee381a4a4af.jpg"
-                    alt="" width="30" height="24" class="d-inline-block align-text-top rounded me-2">
-                Dashboard
+<aside class="sidebar bg-dark">
+    <div class="d-flex flex-column align-items-start pt-3 px-3 h-100">
+
+        <a class="navbar-brand mb-4 text-white d-flex align-items-center text-decoration-none" href="#">
+            <img src="https://img.freepik.com/vetores-gratis/identidade-de-marca-identidade-corporativa-logo-m-design_460848-10168.jpg?semt=ais_hybrid&w=740&q=80"
+                alt="Logo" width="29" height="25" class="rounded me-2">
+            <span class="fw-bold link-text">Myne Library</span>
+        </a>
+
+        <ul class="nav nav-pills flex-column w-100 gap-2">
+            <li class="nav-item">
+                <a href="{{ route('geral.painel') }}"
+                    class="nav-link d-flex align-items-center {{ request()->routeIs('geral.painel') ? 'active fw-bold' : 'text-white-50' }}">
+                    <i class="bi bi-grid-1x2 me-2"></i> 
+                    <span class="link-text">Painel Geral</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('users.painel') }}"
+                    class="nav-link d-flex align-items-center {{ request()->routeIs('users.painel') ? 'active fw-bold' : 'text-white-50' }}">
+                    <i class="bi bi-people me-2"></i> 
+                    <span class="link-text">Painel Usuários</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="mt-auto w-100 pb-4">
+            <hr class="text-white-50"> 
+            <a href="javascript:void(0)" id="toggleSidebar" class="nav-link text-white-50 d-flex align-items-center px-0">
+                <i class="bi bi-box-arrow-left me-2"></i>
+                <span class="link-text">Ocutar Painel</span>
             </a>
-            <ul class="navbar-nav w-100">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#"><i class="bi bi-book me-2"></i> Livros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-people me-2"></i> Autores</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-cart me-2"></i> Vendas</a>
-                </li>
-            </ul>
         </div>
-    </nav>
+
+    </div>
 </aside>
