@@ -1,0 +1,135 @@
+@charset "UTF-8";
+/* 1. IMPORTAÇÃO DA FONTE */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap");
+/* 2. GERAL */
+body {
+  font-family: "Montserrat", sans-serif;
+  /* Ajuste conforme a altura final da sua navbar */
+  padding-top: 100px;
+}
+
+/* 3. NAVBAR (A BARRA EM SI) */
+.navbar {
+  background-color: #ffffff !important;
+  /* Fundo Branco */
+  padding: 10px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  /* Sombra leve opcional */
+}
+
+/* Ajuste do Logo */
+.navbar-brand img {
+  height: 60px;
+  /* Tamanho controlado do logo */
+  width: auto;
+}
+
+/* 4. ALINHAMENTO DO MENU */
+.navbar-nav {
+  /* Garante que os itens fiquem centralizados verticalmente */
+  align-items: center;
+  /* FORÇA O MENU PARA A DIREITA (Corrige o ml-auto se estiver usando Bootstrap 5) */
+  margin-left: auto !important;
+  /* Espaçamento entre os links */
+  gap: 20px;
+}
+
+/* 5. OS LINKS (SOBRE, GALERIAS...) */
+.navbar-nav .nav-link {
+  font-size: 13px;
+  font-weight: 800;
+  /* Extra Negrito */
+  color: #000000 !important;
+  /* Preto */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffd700 !important;
+  /* Amarelo ao passar o mouse */
+}
+
+/* =======================================================
+   6. O BOTÃO AMARELO (PANEL EXPOSITOR)
+   ======================================================= */
+.panel-expositor {
+  background-color: #ffe600;
+  /* Amarelo Gema */
+  border-radius: 6px;
+  height: 54px;
+  /* Altura fixa para criar o bloco */
+  padding: 0 25px;
+  /* Largura interna */
+  /* Flexbox para centralizar o texto dentro da caixa */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  /* Margem extra para separar dos outros links */
+  margin-left: 10px;
+}
+
+.panel-expositor:hover {
+  background-color: #e6cf00;
+  /* Escurece levemente no hover */
+}
+
+/* O TEXTO DENTRO DO BOTÃO */
+.panel-expositor .btn-panel {
+  color: #000000 !important;
+  /* Força preto */
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 0 !important;
+  /* Remove padding padrão do link */
+  margin: 0 !important;
+  text-align: center;
+  line-height: 1.2;
+  white-space: nowrap;
+  /* Mantém em uma linha (se quiser quebrar, avise) */
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-wrapper .about-image {
+  width: 100%;
+  height: 400px;
+  background-color: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #6c757d;
+  border-radius: 8px;
+}
+
+.custom-title {
+  margin-bottom: 30px;
+}
+
+.custom-title .title {
+  font-size: 40px;
+  line-height: 1.125em;
+  font-weight: 700;
+  margin: 0;
+}
+
+.custom-title .title small {
+  display: block;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  line-height: 1.3em;
+  opacity: 0.6;
+  font-weight: 600;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: #888;
+}

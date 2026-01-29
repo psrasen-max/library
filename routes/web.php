@@ -16,4 +16,8 @@ Route::group([],function(){
         return view('users_dashboard');
     })->name('users.painel');
 
+    Route::get('/index', function(){
+        return view('index');
+    })->name('index');
+
 });

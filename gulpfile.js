@@ -21,7 +21,17 @@ var environments = {
             assetsDir + '/js/common/*.js',
             assetsDir + '/js/common/**/*.js',
         ]
-    },
+    }, // <--- ALTERADO: Adicionei a vírgula aqui para não quebrar
+
+    // <--- ADICIONADO: Bloco de configuração do Style (Novo)
+    style: {
+        scssFiles: [
+            assetsDir + '/scss/style.scss',
+        ],
+        jsFiles: [
+            assetsDir + '/js/style.js', // Certifique-se que este arquivo existe!
+        ]
+    }
 };
 
 var scssWatchFiles = [
@@ -47,11 +57,11 @@ function sass2Css(files, outputName, env = 'dev') {
     };
 
     return gulp.src(files)
-    .pipe(debug({ title: 'css-debug' }))
-    .pipe(concat(outputName + '.scss'))
-    .pipe(sass(sassConfig).on('error', sass.logError))
-    .pipe(rename(outputName + '.min.css'))
-    .pipe(gulp.dest(buildDir + '/css'));
+        .pipe(debug({ title: 'css-debug' }))
+        .pipe(concat(outputName + '.scss'))
+        .pipe(sass(sassConfig).on('error', sass.logError))
+        .pipe(rename(outputName + '.min.css'))
+        .pipe(gulp.dest(buildDir + '/css'));
 }
 
 // Concatena e mimifica os arquivos css se estiver em produção
@@ -61,9 +71,9 @@ function css(files, outputName, env = 'dev') {
 
     // Obtém o objeto com as chamadas.
     var obj = gulp.src(files)
-    .pipe(debug({ title: 'css-debug' }))
-    .pipe(concat(outputName + '.css'))
-    .pipe(rename(outputName + '.min.css'));
+        .pipe(debug({ title: 'css-debug' }))
+        .pipe(concat(outputName + '.css'))
+        .pipe(rename(outputName + '.min.css'));
 
     // Caso seja produção, minifica o css.
     if (env == 'prod') {
@@ -74,13 +84,13 @@ function css(files, outputName, env = 'dev') {
 }
 
 // Concatena os arquivos js e comprime em js
-function js2Mimify(files, outputName , env = 'dev') {
+function js2Mimify(files, outputName, env = 'dev') {
 
     outputName = outputName + (argv.tag ? '-' + argv.tag : '');
 
     var obj = gulp.src(files)
-    .pipe(debug({ title: "js-debug" }))
-    .pipe(concat(outputName + ".js"));
+        .pipe(debug({ title: "js-debug" }))
+        .pipe(concat(outputName + ".js"));
 
     var gulpTerserOptions = {
         output: { comments: false }
@@ -91,7 +101,7 @@ function js2Mimify(files, outputName , env = 'dev') {
     }
 
     return obj.pipe(rename(outputName + ".min.js"))
-    .pipe(gulp.dest(buildDir + "/js"));
+        .pipe(gulp.dest(buildDir + "/js"));
 }
 
 // Limpa o diretório de build
@@ -102,15 +112,15 @@ function cleanBuild() {
 // Copia as imagens da aplicação
 function images() {
 
-    return gulp.src("img/**/*", { cwd : assetsDir })
-    .pipe(gulp.dest("public/assets/img"));
+    return gulp.src("img/**/*", { cwd: assetsDir })
+        .pipe(gulp.dest("public/assets/img"));
 }
 
 // Copia as fontes de aplicação
 function fonts() {
 
-    return gulp.src("fonts/**/*", { cwd : assetsDir })
-    .pipe(gulp.dest("public/assets/fonts"));
+    return gulp.src("fonts/**/*", { cwd: assetsDir })
+        .pipe(gulp.dest("public/assets/fonts"));
 }
 
 // ---------------------------------------------------------------------------------------------------
@@ -132,6 +142,16 @@ function commonCssProd() {
     return scssTask(environments.common.scssFiles, 'common', 'prod');
 }
 
+// <--- ADICIONADO: Funções para compilar o CSS do Style
+function styleCssDev() {
+    return scssTask(environments.style.scssFiles, 'style');
+}
+
+function styleCssProd() {
+    return scssTask(environments.style.scssFiles, 'style', 'prod');
+}
+
+
 // ---------------------------------------------------------------------------------------------------
 // Tasks para JS
 
@@ -147,6 +167,15 @@ function commonJsProd() {
     return jsTask(environments.common.jsFiles, 'common', 'prod');
 }
 
+// <--- ADICIONADO: Funções para compilar o JS do Style
+function styleJsDev() {
+    return jsTask(environments.style.jsFiles, 'style');
+}
+
+function styleJsProd() {
+    return jsTask(environments.style.jsFiles, 'style', 'prod');
+}
+
 // ---------------------------------------------------------------------------------------------------
 // Tasks avulsas
 
@@ -156,23 +185,30 @@ function commonJsProd() {
  */
 function watch() {
 
-    // Atualizar arquivos SCSS
-    gulp.watch(scssWatchFiles, commonCssDev);
+    // <--- ALTERADO: Agora compila Common E Style quando um SCSS muda
+    gulp.watch(scssWatchFiles, gulp.parallel(commonCssDev, styleCssDev));
 
-    // Atualizar arquivos JS
+    // Atualizar arquivos JS Common
     gulp.watch(environments.common.jsFiles, commonJsDev);
+
+    // <--- ADICIONADO: Monitorar arquivos JS do Style
+    gulp.watch(environments.style.jsFiles, styleJsDev);
 }
 
 gulp.task('clean', gulp.series(cleanBuild));
 
+// <--- ALTERADO: Adicionei styleCssProd e styleJsProd na lista de build
 gulp.task('build', gulp.series(
-    cleanBuild, commonCssProd, commonJsProd,
+    commonCssProd, styleCssProd,
+    commonJsProd, styleJsProd,
     images,
     fonts,
 ));
 
+// <--- ALTERADO: Adicionei styleCssDev e styleJsDev na lista default
 gulp.task('default', gulp.series(
-    cleanBuild, commonCssDev, commonJsDev,
+    commonCssDev, styleCssDev,
+    commonJsDev, styleJsDev,
     images,
     fonts
 ));
