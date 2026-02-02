@@ -12,24 +12,30 @@
 </head>
 
 <body>
+    <div class="wrapper">
+        <header id="navbar">
+            @include('components.navbar')
+        </header>
+        <main>
+            <section id="hero">
+                @include('components.hero')
+            </section>
 
-    <header id="navbar">
-        @include('components.navbar')
-    </header>
+            <section id="about">
+                @include('components.about')
+            </section>
 
-    <section id="hero">
-        @include('components.hero')
-    </section>
-
-    <section id="about">
-        @include('components.about')
-    </section>
-
-    <section id="countdown">
-        @include('components.countdown')
-    </section>
+            <section id="countdown" class="section-countdown">
+                @include('components.countdown')
+            </section>
+            <section id="publications" class="section-publications">
+                @include('components.publications')
+            </section>
+        </main>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

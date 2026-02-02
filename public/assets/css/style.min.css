@@ -1,46 +1,36 @@
 @charset "UTF-8";
 /* 1. IMPORTAÇÃO DA FONTE */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap");
-/* 2. GERAL */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 body {
-  font-family: "Montserrat", sans-serif;
-  /* Ajuste conforme a altura final da sua navbar */
-  padding-top: 100px;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: #333;
 }
 
-/* 3. NAVBAR (A BARRA EM SI) */
 .navbar {
   background-color: #ffffff !important;
-  /* Fundo Branco */
   padding: 10px 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  /* Sombra leve opcional */
 }
 
-/* Ajuste do Logo */
 .navbar-brand img {
   height: 60px;
-  /* Tamanho controlado do logo */
   width: auto;
 }
 
-/* 4. ALINHAMENTO DO MENU */
 .navbar-nav {
-  /* Garante que os itens fiquem centralizados verticalmente */
   align-items: center;
-  /* FORÇA O MENU PARA A DIREITA (Corrige o ml-auto se estiver usando Bootstrap 5) */
   margin-left: auto !important;
-  /* Espaçamento entre os links */
   gap: 20px;
 }
 
-/* 5. OS LINKS (SOBRE, GALERIAS...) */
 .navbar-nav .nav-link {
   font-size: 13px;
-  font-weight: 800;
-  /* Extra Negrito */
+  font-weight: 600;
   color: #000000 !important;
-  /* Preto */
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: color 0.3s ease;
@@ -48,27 +38,19 @@ body {
 
 .navbar-nav .nav-link:hover {
   color: #ffd700 !important;
-  /* Amarelo ao passar o mouse */
+  /* Cor dourada no hover */
 }
 
-/* =======================================================
-   6. O BOTÃO AMARELO (PANEL EXPOSITOR)
-   ======================================================= */
 .panel-expositor {
   background-color: #ffe600;
-  /* Amarelo Gema */
   border-radius: 6px;
   height: 54px;
-  /* Altura fixa para criar o bloco */
   padding: 0 25px;
-  /* Largura interna */
-  /* Flexbox para centralizar o texto dentro da caixa */
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease;
   cursor: pointer;
-  /* Margem extra para separar dos outros links */
   margin-left: 10px;
 }
 
@@ -77,8 +59,8 @@ body {
   /* Escurece levemente no hover */
 }
 
-/* O TEXTO DENTRO DO BOTÃO */
 .panel-expositor .btn-panel {
+  /* O TEXTO DENTRO DO BOTÃO */
   color: #000000 !important;
   /* Força preto */
   font-weight: 800;
@@ -90,38 +72,47 @@ body {
   text-align: center;
   line-height: 1.2;
   white-space: nowrap;
-  /* Mantém em uma linha (se quiser quebrar, avise) */
+  /* Evita quebra de linha */
 }
 
-.section {
+.wrapper {
+  position: absolute;
+  min-height: 100%;
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  z-index: 0;
 }
 
 .about-wrapper .about-image {
   width: 100%;
-  height: 400px;
-  background-color: #e9ecef;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  color: #6c757d;
+  padding: 10px;
   border-radius: 8px;
+}
+.about-wrapper .about-image .image-wrapper {
+  aspect-ratio: 16/9;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+}
+.about-wrapper .about-image .image-wrapper iframe {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
 }
 
 .custom-title {
   margin-bottom: 30px;
 }
-
 .custom-title .title {
   font-size: 40px;
   line-height: 1.125em;
   font-weight: 700;
   margin: 0;
 }
-
 .custom-title .title small {
   display: block;
   font-size: 16px;
@@ -132,4 +123,116 @@ body {
   margin-bottom: 0;
   text-transform: uppercase;
   color: #888;
+}
+
+.section-about {
+  align-items: center;
+}
+
+.section-countdown {
+  background-color: #000000;
+  padding: 60px 0;
+  background-image: url(https://www.expopecas.com.br/assets/img/bkg-countdown.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+}
+.section-countdown .custom-title {
+  text-align: center;
+}
+.section-countdown .countdown-items {
+  display: flex;
+}
+.section-countdown .countdown-items div {
+  width: 100%;
+  text-align: center;
+}
+.section-countdown .countdown-items div:nth-child(even) {
+  color: aqua;
+}
+.section-countdown .countdown-items div:first-child {
+  color: #ec0d36;
+}
+.section-countdown .countdown-items div:nth-child(3) {
+  color: #d80cb6;
+}
+.section-countdown .countdown-items div:last-child {
+  color: #00ff37;
+}
+.section-countdown .countdown-items div h1 {
+  margin-bottom: 0;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 75px;
+}
+.section-countdown .countdown-items div span {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fbd502;
+}
+
+.section-publications {
+  padding: 40px 0;
+}
+.section-publications .publications-wrapper .row {
+  align-items: center;
+  margin-bottom: 40px;
+}
+.section-publications .publications-list {
+  position: relative;
+}
+.section-publications .publications-list .publication-item {
+  text-decoration: none;
+}
+.section-publications .publications-list .publication-item .thumbnail {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #eee;
+  margin-bottom: 20px;
+}
+.section-publications .publications-list .publication-item .thumbnail::after {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+.section-publications .publications-list .publication-item .thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: auto;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+.section-publications .publications-list .publication-item .publication.text h4 {
+  font-size: 26px;
+  font-weight: 700;
+  -webkit-line-clamp: 1;
+}
+
+.btn {
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.custom-btn {
+  border-radius: 5em;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 2em;
+  margin: 0;
+  outline: 0;
+  padding: 16px 36px;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
 }

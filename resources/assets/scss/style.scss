@@ -1,48 +1,40 @@
 /* 1. IMPORTAÇÃO DA FONTE */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-/* 2. GERAL */
 body {
-    font-family: 'Montserrat', sans-serif;
-    /* Ajuste conforme a altura final da sua navbar */
-    padding-top: 100px;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
 }
 
-/* 3. NAVBAR (A BARRA EM SI) */
+
 .navbar {
     background-color: #ffffff !important;
-    /* Fundo Branco */
     padding: 10px 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    /* Sombra leve opcional */
+
 }
 
-/* Ajuste do Logo */
+
 .navbar-brand img {
     height: 60px;
-    /* Tamanho controlado do logo */
     width: auto;
 }
 
-/* 4. ALINHAMENTO DO MENU */
+
 .navbar-nav {
-    /* Garante que os itens fiquem centralizados verticalmente */
     align-items: center;
-
-    /* FORÇA O MENU PARA A DIREITA (Corrige o ml-auto se estiver usando Bootstrap 5) */
     margin-left: auto !important;
-
-    /* Espaçamento entre os links */
     gap: 20px;
 }
 
-/* 5. OS LINKS (SOBRE, GALERIAS...) */
 .navbar-nav .nav-link {
     font-size: 13px;
-    font-weight: 800;
-    /* Extra Negrito */
+    font-weight: 600;
     color: #000000 !important;
-    /* Preto */
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
@@ -50,31 +42,19 @@ body {
 
 .navbar-nav .nav-link:hover {
     color: #ffd700 !important;
-    /* Amarelo ao passar o mouse */
+    /* Cor dourada no hover */
 }
-
-/* =======================================================
-   6. O BOTÃO AMARELO (PANEL EXPOSITOR)
-   ======================================================= */
 
 .panel-expositor {
     background-color: #ffe600;
-    /* Amarelo Gema */
     border-radius: 6px;
     height: 54px;
-    /* Altura fixa para criar o bloco */
     padding: 0 25px;
-    /* Largura interna */
-
-    /* Flexbox para centralizar o texto dentro da caixa */
     display: flex;
     align-items: center;
     justify-content: center;
-
     transition: background-color 0.3s ease;
     cursor: pointer;
-
-    /* Margem extra para separar dos outros links */
     margin-left: 10px;
 }
 
@@ -83,8 +63,9 @@ body {
     /* Escurece levemente no hover */
 }
 
-/* O TEXTO DENTRO DO BOTÃO */
+
 .panel-expositor .btn-panel {
+    /* O TEXTO DENTRO DO BOTÃO */
     color: #000000 !important;
     /* Força preto */
     font-weight: 800;
@@ -96,46 +77,203 @@ body {
     text-align: center;
     line-height: 1.2;
     white-space: nowrap;
-    /* Mantém em uma linha (se quiser quebrar, avise) */
+    /* Evita quebra de linha */
 }
 
-.section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-wrapper .about-image {
+.wrapper {
+    position: absolute;
+    min-height: 100%;
     width: 100%;
-    height: 400px;
-    background-color: #e9ecef;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #6c757d;
-    border-radius: 8px;
+    flex-direction: column;
+    z-index: 0;
+}
+
+.about-wrapper {
+
+    .about-image {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px; 
+        border-radius: 8px;
+        
+        .image-wrapper {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            max-width: 540px;
+            margin: 0 auto;
+
+            iframe {
+                border-radius: 8px;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
 }
 
 .custom-title {
     margin-bottom: 30px;
+
+    .title {
+        font-size: 40px;
+        line-height: 1.125em;
+        font-weight: 700;
+        margin: 0;
+
+        small {
+            display: block;
+            font-size: 16px;
+            letter-spacing: .15em;
+            line-height: 1.3em;
+            opacity: 0.6;
+            font-weight: 600;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            color: #888;
+        }
+    }
 }
 
-.custom-title .title {
-    font-size: 40px;
-    line-height: 1.125em;
+.section-about {
+    align-items: center;
+}
+
+.section-countdown {
+    background-color: #000000;
+    padding: 60px 0;
+    background-image: url(https://www.expopecas.com.br/assets/img/bkg-countdown.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+
+    .custom-title {
+        text-align: center;
+    }
+
+    .countdown-items {
+        display: flex;
+
+        div {
+            width: 100%;
+            text-align: center;
+
+            &:nth-child(even) {
+                color: aqua;
+            }
+
+            &:first-child {
+                color: #ec0d36;
+            }
+
+            &:nth-child(3) {
+                color: #d80cb6;
+            }
+
+            &:last-child {
+                color: #00ff37;
+            }
+
+            h1 {
+                margin-bottom: 0;
+                font-weight: 700;
+                font-size: 70px;
+                line-height: 75px;
+            }
+
+            span {
+                font-weight: 600;
+                text-transform: uppercase;
+                color: #fbd502;
+            }
+        }
+    }
+}
+
+.section-publications {
+    padding: 40px 0;
+
+    .publications-wrapper {
+
+        .row {
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+    }
+
+    .publications-list {
+        position: relative;
+
+        .publication-item {
+            text-decoration: none;
+
+            .thumbnail {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                background-color: #eee;
+                margin-bottom: 20px;
+
+                &::after {
+                    content: ""; // Elemento vazio para criar o espaço
+                    display: block; // Torna o elemento um bloco
+                    padding-top: 56.25%; // Proporção 16:9 para a imagem
+                }
+
+                img {
+                    position: absolute; // Posiciona a imagem dentro do contêiner
+                    left: 50%; // Centraliza horizontalmente 
+                    top: 50%; // Centraliza verticalmente 
+                    height: auto; // Mantém a proporção da imagem 
+                    width: 100%; // Ocupa toda a largura do contêiner
+                    transform: translate(-50%, -50%); // Ajusta a posição para centralizar perfeitamente
+                    transition: all 0.3s ease; // Transição suave para hover
+                }
+
+            }
+
+            .publication.text {
+
+                h4 {
+                    font-size: 26px;
+                    font-weight: 700;
+                    -webkit-line-clamp: 1; // Limita a 2 linhas
+
+                }
+            }
+        }
+    }
+
+}
+
+.btn {
+    text-align: center; // Centraliza o texto ?
+    white-space: nowrap; // Evita quebra de linha ?
+    user-select: none; // Evita seleção do texto
+    border: none; // Remove borda padrão
+
+}
+
+.btn-primary {
+    background-color: #000000 !important; // Garante a cor de fundo preta 
+    color: #ffffff !important; // Garante a cor do texto branca
+
+}
+
+.custom-btn {
+    border-radius: 5em; // Bordas arredondadas
+    font-size: 13px;
     font-weight: 700;
-    margin: 0;
-}
+    letter-spacing: 0.05em; // Espaçamento entre letras
+    line-height: 2em; // Altura da linha para melhor alinhamento
+    margin: 0; // Remove margens padrão ?
+    outline: 0; // Remove contorno ao focar ?
+    padding: 16px 36px; // Espaçamento interno (fazer o botão maior)
+    text-transform: uppercase; // Texto em maiúsculas
+    transition: all 0.2s ease-in-out; // Transição suave para hover
 
-.custom-title .title small {
-    display: block;
-    font-size: 16px;
-    letter-spacing: .15em;
-    line-height: 1.3em;
-    opacity: 0.6;
-    font-weight: 600;
-    margin-bottom: 0;
-    text-transform: uppercase;
-    color: #888;
 }

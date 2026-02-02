@@ -1,4 +1,4 @@
-<div id="about" class="section section-about">
+<div id="about" class="section section-about py-5 ">
     <div class="container about-wrapper">
         <div class="row align-items-center">
 
@@ -31,55 +31,12 @@
 
             <div id="about-image" class="col-12 col-md-6">
                 <div class="about-image w-100">
-                    You Tube - Box
+                    <div class="image-wrapper">
+                        <iframe src="https://www.youtube.com/embed/fblnLGBAvFU?si=hk4YX-3oXfpy7nhF&autoplay=1&mute=1" frameborder="0"></iframe>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 </div>
-
-<style>
-    .section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .section-about {}
-
-    .about-wrapper .about-image {
-        width: 100%;
-        height: 400px;
-        background-color: #e9ecef;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        color: #6c757d;
-        border-radius: 8px;
-    }
-
-    .custom-title {
-        margin-bottom: 30px;
-    }
-
-    .custom-title .title {
-        font-size: 40px;
-        line-height: 1.125em;
-        font-weight: 700;
-        margin: 0;
-    }
-
-    .custom-title .title small{
-        display:block;
-        font-size: 16px;
-        letter-spacing: .15em;
-        line-height: 1.3em;
-        opacity: 0.6;
-        font-weight: 600;
-        margin-bottom: 0;
-        text-transform: uppercase;
-        color: #888;
-    }
-</style>
