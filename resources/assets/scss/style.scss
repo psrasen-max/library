@@ -1,4 +1,4 @@
-/* 1. IMPORTAÇÃO DA FONTE */
+/* IMPORTAÇÃO DA FONTE */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 body {
@@ -96,9 +96,9 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 10px; 
+        padding: 10px;
         border-radius: 8px;
-        
+
         .image-wrapper {
             aspect-ratio: 16 / 9;
             width: 100%;
@@ -162,18 +162,22 @@ body {
             text-align: center;
 
             &:nth-child(even) {
+                // Aplica a cor aqua aos filhos pares
                 color: aqua;
             }
 
             &:first-child {
+                // Aplica a cor vermelha ao primeiro filho
                 color: #ec0d36;
             }
 
             &:nth-child(3) {
+                // Aplica a cor rosa ao terceiro filho
                 color: #d80cb6;
             }
 
             &:last-child {
+                // Aplica a cor verde ao último filho
                 color: #00ff37;
             }
 
@@ -210,6 +214,7 @@ body {
 
         .publication-item {
             text-decoration: none;
+            color: #333;
 
             .thumbnail {
                 position: relative;
@@ -236,18 +241,130 @@ body {
 
             }
 
-            .publication.text {
+            .publication-text {
+
+
+                h4,
+                p {
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
 
                 h4 {
                     font-size: 26px;
                     font-weight: 700;
-                    -webkit-line-clamp: 1; // Limita a 2 linhas
+                    margin: 0 0 5px;
 
+
+                    -webkit-line-clamp: 1; // Limita a 1 linha
+                    line-clamp: 1;
+                }
+
+                p {
+
+                    -webkit-line-clamp: 3; // Limita a 3 linhas
+                    line-clamp: 3;
                 }
             }
         }
+
+        .read-more {
+            font-weight: 700;
+        }
     }
 
+}
+
+.section-galleries {
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+
+    .publications-wrapper {
+
+        .row {
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+    }
+
+    .publications-list {
+        position: relative;
+
+        .publication-item {
+            text-decoration: none;
+            color: #333;
+
+            .thumbnail {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                background-color: #eee;
+                margin-bottom: 20px;
+
+                &::after {
+                    content: ""; // Elemento vazio para criar o espaço
+                    display: block; // Torna o elemento um bloco
+                    padding-top: 56.25%; // Proporção 16:9 para a imagem
+                }
+
+                img {
+                    position: absolute; // Posiciona a imagem dentro do contêiner
+                    left: 50%; // Centraliza horizontalmente 
+                    top: 50%; // Centraliza verticalmente 
+                    height: auto; // Mantém a proporção da imagem 
+                    width: 100%; // Ocupa toda a largura do contêiner
+                    transform: translate(-50%, -50%); // Ajusta a posição para centralizar perfeitamente
+                    transition: all 0.3s ease; // Transição suave para hover
+                }
+
+            }
+
+            .publication-text {
+
+
+                h4,
+                p {
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                h4 {
+                    font-size: 26px;
+                    font-weight: 700;
+                    margin: 0 0 5px;
+
+
+                    -webkit-line-clamp: 1; // Limita a 1 linha
+                    line-clamp: 1;
+                }
+
+                p {
+
+                    -webkit-line-clamp: 3; // Limita a 3 linhas
+                    line-clamp: 3;
+                }
+            }
+        }
+
+        .read-more {
+            font-weight: 700;
+        }
+    }
+
+}
+
+.section-map iframe {
+    filter: grayscale(100%) invert(10%) contrast(1.2);
+    /* Truque para parecer o mapa dark */
+    width: 100%;
+    height: 400px;
+    /* Ajuste a altura conforme necessário */
+    display: block;
 }
 
 .btn {
@@ -270,10 +387,107 @@ body {
     font-weight: 700;
     letter-spacing: 0.05em; // Espaçamento entre letras
     line-height: 2em; // Altura da linha para melhor alinhamento
-    margin: 0; // Remove margens padrão ?
-    outline: 0; // Remove contorno ao focar ?
+    margin: 0; // Remove margens padrão
+    outline: 0; // Remove contorno ao focar
     padding: 16px 36px; // Espaçamento interno (fazer o botão maior)
     text-transform: uppercase; // Texto em maiúsculas
     transition: all 0.2s ease-in-out; // Transição suave para hover
 
+}
+
+.section-sponsors {
+    padding: 40px 0; // Espaçamento superior e inferior
+
+    .sponsors-wrapper {
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .sponsors-list {
+            display: flex;
+            flex-wrap: wrap; // Permite que os itens quebrem linha
+            margin: 0 -15px; // Espaçamento negativo para compensar o padding dos itens
+
+            .sponsors-item {
+                width: 20%; // 5 itens por linha
+                transition: all 0.3s ease; // Transição suave para hover
+
+                a {
+                    display: flex;
+                    height: 100%;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 15px;
+
+                    .exhibitor-logo {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background-color: #000000;
+
+    .footer-columns {
+        padding: 20px 0;
+
+        .brand-link {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            padding: 0;
+
+            img {
+                max-width: 130px;
+                height: auto;
+            }
+        }
+    }
+
+
+    .social-media-list {
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 40px;
+            height: 40px;
+
+            background-color: #333;
+            border-radius: 50%;
+
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: #fbd502;
+                color: #000000;
+                transform: translateY(-3px);
+            }
+        }
+    }
+
+    .copyright {
+        width: 100%;
+        background: #fbd502;
+        padding: 10px 0;
+        min-height: 20px;
+    }
 }

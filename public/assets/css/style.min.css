@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* 1. IMPORTAÇÃO DA FONTE */
+/* IMPORTAÇÃO DA FONTE */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 body {
   padding: 0;
@@ -184,6 +184,7 @@ body {
 }
 .section-publications .publications-list .publication-item {
   text-decoration: none;
+  color: #333;
 }
 .section-publications .publications-list .publication-item .thumbnail {
   position: relative;
@@ -206,10 +207,93 @@ body {
   transform: translate(-50%, -50%);
   transition: all 0.3s ease;
 }
-.section-publications .publications-list .publication-item .publication.text h4 {
+.section-publications .publications-list .publication-item .publication-text h4,
+.section-publications .publications-list .publication-item .publication-text p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.section-publications .publications-list .publication-item .publication-text h4 {
   font-size: 26px;
   font-weight: 700;
+  margin: 0 0 5px;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+.section-publications .publications-list .publication-item .publication-text p {
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+.section-publications .publications-list .read-more {
+  font-weight: 700;
+}
+
+.section-galleries {
+  padding: 40px 0;
+  border-top: 1px solid #eee;
+}
+.section-galleries .publications-wrapper .row {
+  align-items: center;
+  margin-bottom: 40px;
+}
+.section-galleries .publications-list {
+  position: relative;
+}
+.section-galleries .publications-list .publication-item {
+  text-decoration: none;
+  color: #333;
+}
+.section-galleries .publications-list .publication-item .thumbnail {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #eee;
+  margin-bottom: 20px;
+}
+.section-galleries .publications-list .publication-item .thumbnail::after {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+.section-galleries .publications-list .publication-item .thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: auto;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+.section-galleries .publications-list .publication-item .publication-text h4,
+.section-galleries .publications-list .publication-item .publication-text p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.section-galleries .publications-list .publication-item .publication-text h4 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 5px;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+.section-galleries .publications-list .publication-item .publication-text p {
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+.section-galleries .publications-list .read-more {
+  font-weight: 700;
+}
+
+.section-map iframe {
+  filter: grayscale(100%) invert(10%) contrast(1.2);
+  /* Truque para parecer o mapa dark */
+  width: 100%;
+  height: 400px;
+  /* Ajuste a altura conforme necessário */
+  display: block;
 }
 
 .btn {
@@ -235,4 +319,78 @@ body {
   padding: 16px 36px;
   text-transform: uppercase;
   transition: all 0.2s ease-in-out;
+}
+
+.section-sponsors {
+  padding: 40px 0;
+}
+.section-sponsors .sponsors-wrapper .section-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.section-sponsors .sponsors-wrapper .sponsors-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+.section-sponsors .sponsors-wrapper .sponsors-list .sponsors-item {
+  width: 20%;
+  transition: all 0.3s ease;
+}
+.section-sponsors .sponsors-wrapper .sponsors-list .sponsors-item a {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+.section-sponsors .sponsors-wrapper .sponsors-list .sponsors-item a .exhibitor-logo {
+  width: 100%;
+  height: auto;
+}
+
+footer {
+  background-color: #000000;
+}
+footer .footer-columns {
+  padding: 20px 0;
+}
+footer .footer-columns .brand-link {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+footer .footer-columns .brand-link img {
+  max-width: 130px;
+  height: auto;
+}
+footer .social-media-list ul {
+  margin: 0;
+  padding: 0;
+}
+footer .social-media-list a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+footer .social-media-list a:hover {
+  background-color: #fbd502;
+  color: #000000;
+  transform: translateY(-3px);
+}
+footer .copyright {
+  width: 100%;
+  background: #fbd502;
+  padding: 10px 0;
+  min-height: 20px;
 }

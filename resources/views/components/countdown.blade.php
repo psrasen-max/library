@@ -7,30 +7,30 @@
 
 <div class="container countdown-wrapper">
 
-    <div class="countdown-items justify-content-center" data-time="2026-09-10 00:00:00">
+    <div class="countdown-items justify-content-center" data-time="2026-02-27 00:00:00">
         
-        <div id="months" data-label="months">
-        <h1>07</h1>
+        <div> 
+        <h1 id="months">07</h1>
         <span>Meses</span>
         </div>
 
-        <div id="days" data-label="days">
-        <h1>27</h1>
+        <div>
+        <h1 id="days">27</h1>
         <span>Dias</span>
         </div>
 
-        <div id="hours" data-label="hours">
-            <h1>11</h1>
+        <div>
+            <h1 id="hours">11</h1>
             <span>Horas</span>
         </div>
 
-        <div id="minutes" data-label="minutes">
-        <h1>09</h1>
+        <div>
+        <h1 id="minutes">09</h1>
         <span>Minutos</span>
         </div>
 
-        <div id="seconds" data-label="seconds">
-        <h1>10</h1>
+        <div>
+        <h1 id="seconds">10</h1>
         <span>Segundos</span>
         </div>
 
